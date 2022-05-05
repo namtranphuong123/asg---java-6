@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <main>
+        <section class="mt-5" style="background-color: khaki;" th:fragment="shopping_cart">
+        <div class="panel-heading" style="text-align : center ;">SHOPPING CART</div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Acction</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr ng-repeat="item in cart.items">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>${{item.price | number : 2}}</td>
+                        <td><input ng-change="cart.saveToLocalStorage()" ng-model="item.qty" type="number" min="1" style="width: 150px;" /></td>
+                        <td>${{item.qty*item.price | number : 2}}</td>
+
+                        <td><a class="btn btn-danger" ng-click="cart.remove(item.id)">Remove</a>
+                        </td>
+                    </tr>
+                  
+
+
+                </tbody>
+            </table>
+            <hr>
+          
+            <hr>
+            <div>
+                <a th:href="@{/product/list}" style="background-color: rgb(120, 116, 121);"
+                    class="btn btn-outline-warning"> Mua Thêm</a>
+
+                <a ng-click="cart.clear()" class="btn btn-outline-warning"
+                    style="background-color: rgb(228, 47, 23);">Clear Cart</a>
+
+                <a th:href="@{/order/checkout}" class="btn btn-outline-warning"
+                    style="background-color: rgb(106, 168, 240);">CkekOut</a>
+
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>

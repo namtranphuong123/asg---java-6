@@ -1,0 +1,28 @@
+
+<div class="mt-4"xmlns:th="http://www.thymeleaf.org">
+
+  
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    Danh Mục
+  </a>
+  <a  th:each="c : ${cates}"    th:href="@{|/product/list?cid=${c.id}|}"
+   class="list-group-item list-group-item-action">[[${c.name}]]</a>
+  
+</div>
+
+<br>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    Sản phẩm theo giá 
+  </a>
+  <a     th:value="20"
+   class="list-group-item list-group-item-action">20 $</a>
+    <a     th:value="30"
+   class="list-group-item list-group-item-action">30 $</a>
+     <a     th:value="40"
+   class="list-group-item list-group-item-action">40 $</a>
+     <a     th:value="50"
+   class="list-group-item list-group-item-action">50 $</a>
+</div>
+</div>

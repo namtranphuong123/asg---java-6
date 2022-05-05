@@ -1,0 +1,120 @@
+<div class="panel panel-default">
+    <div class="card" style="height: 580px;background-color: rgb(192, 192, 192);">
+        <div class="card-header">
+            EDIT PRODUCT
+        </div>
+        <div class="card-body">
+            <form name="registForm">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="image">
+                            <img ng-src="{{'/assert/images/' + form.image}}" style="max-width: 100%; height: 240px;"
+                                srcset="">
+                        </label>
+
+                        <div class="form-group" style="width: 450px;">
+                            <label for="Productimage">Image File</label>
+                            <input type="file" onchange="angular.element(this).scope().imageChanged(this.files)"
+                                class="form-control-file" id="image" placeholder="Product Image"
+                                aria-describedby="productImage">
+
+
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="name">Create Date</label>
+                            <input type="date" ng-model="form.createDate" class="form-control">
+                        </div>
+                    </div>
+
+
+
+                   
+
+
+
+                    <div class="col-8">
+
+
+                        
+                        <div class="form-group">
+                            <label for="productId">ProductId:</label>
+                            <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                                placeholder="ProductId" readonly>
+
+                        </div>
+
+                      
+
+
+
+                        <div class="form-group">
+                            <label>Tên sản phẩm:</label>
+                            <input   ng-model="form.name" class="form-control" type="text" required name="name" >
+                            <br>
+                            <span class=" alert alert-danger" ng-show="registForm.name.$invalid">Phải nhập tên sản phẩm</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Gía:</label>
+                            <input   ng-model="form.price" class="form-control" type="text" required name="gia" >
+                            <br>
+                            <span class=" alert alert-danger" ng-show="registForm.gia.$invalid">Phải nhập giá sản phẩm</span>
+                        </div>
+                        
+
+                        
+
+                        <div class="form-group">
+                            <label for="name">Category</label>
+                            <select ng-model="form.category.id" class="form-control">
+                                <option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+                            </select>
+
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <label for="name">Available</label>
+                            <label for="radio-inline" class="form-control">
+                                <input type="radio" style="margin-left: 30px;" name="availlable"
+                                    ng-model="form.available" ng-value="true">Yes
+                                <!-- // neu khong de ng value thi khi nhan giu lieu se hieu la chuoi -->
+                                <input type="radio" style="margin-left: 60px;" name="availlable"
+                                    ng-model="form.available" ng-value="false">No
+                            </label>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="card-footer text-muted">
+        <div class="card-footer text-muted">
+            <button type="reset" ng-click="reset()" class="btn btn-secondary">Reset</button>
+            <button ng-click="update()" class="btn btn-warning"><i class="fas fa-update">Update</i> </button>
+            <button ng-click="create()" class="btn btn-primary"><i class="fas fa-save">Save</i> </button>
+            <button ng-click="delete(form)" class="btn btn-danger"><i class="fas fa-delete">Delete</i> </button>
+
+
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,146 @@
+
+
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" >
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script th:src="@{/assert/js/angular.min.js}"></script>
+  
+
+
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js}"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body  ng-app="account-app" ng-controller="account-ctrl">
+    <div class="panel panel-default">
+        <div class="card" style="height: 600px;background-color: rgb(192, 192, 192);">
+            <div class="card-header">
+                Đăng ký
+            </div>
+
+            <div class="card-body">
+                <form name = "registForm">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="image">
+                            <img  ng-src="{{'/assert/images/' + form.image}}"  style="max-width: 100%; height: 240px;" srcset="">
+                        </label>
+    
+                        <div class="form-group" style="width: 450px;">
+                            <label for="Productimage">Image File</label>
+                            <input type="file" onchange="angular.element(this).scope().imageChanged(this.files)"
+                                class="form-control-file" id="image" placeholder="Product Image"
+                                aria-describedby="productImage">
+    
+                            
+    
+                        </div>
+                        <div class="form-group ">
+                            <label for="createDate">Create Date</label>
+                            <input type="date" ng-model="form.createDate" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="col-8">
+    
+                        <div class="form-group">
+                            <label>user name:</label>
+                            <input ng-model="form.username"  class="form-control" type="text"required name="username" >
+                            <br>
+                            <span class=" alert alert-danger" ng-show="registForm.username.$invalid">Phải nhập USERNAME</span>
+                        </div>
+                        
+    
+                        <div class="form-group">
+                            <label for="password">PassWord</label>
+                            <input type="password" class="form-control" ng-model="form.password" aria-describedby="namehelpId"
+                                placeholder="password" required name="password" >
+                                <br>
+                                <span class=" alert alert-danger" ng-show="registForm.password.$invalid">Phải nhập Password</span>
+
+    
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" class="form-control" ng-model="form.fullname" aria-describedby="namehelpId" required name="fullname"
+                                placeholder="fullname">
+                                <br>
+                                <span class=" alert alert-danger" ng-show="registForm.fullname.$invalid">Phải nhập Fullname</span>
+
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="email" class="form-control" ng-model="form.email" aria-describedby="namehelpId" name="email"
+                                placeholder="email">
+                                <br>
+                                <label ng-show="registForm.email.$invalid" class="alert alert-danger">Vui long nhap dung email</label>
+
+    
+                        </div>
+    
+                       
+    
+    
+    
+    
+    
+                        
+                        
+                    </div>
+    
+    
+    
+    
+    
+                </div>
+                
+        </form>
+            </div>
+    
+    
+        </div>
+    
+    
+    
+    
+    
+        <div class="card-footer text-muted">
+            <div class="card-footer text-muted ">
+                
+
+                <button ng-click="create()"class="btn btn-primary"><i class="fas fa-save">Save</i> </button>
+    
+    
+            </div>
+            
+        </div>
+        
+    </div>
+    <div style="background-color: bisque;">      
+         <a style="margin-left: 650px;"  class="nav-link" th:href="@{/security/login/form}"> Bạn Đã Có Tài Khoản Đăng Nhập Ngay ?</a>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script th:src="@{/assert/js/account.js}"></script>
+
+ 
+  </body>
+</html>
+
+
+
+
+
+

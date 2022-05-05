@@ -1,0 +1,21 @@
+
+
+<ul class="nav nav-tabs" style="font-variant: small-caps;">
+    <li class="active"><a data-toggle="tab" data-target="#list" href="">Sản phẩm theo loại</a></li>
+    <li><a data-toggle="tab" data-target="#edit" href="">doanh thu theo loại</a></li>
+    <li><a data-toggle="tab" data-target="#edit1" href="">doanh thu sản phẩm</a></li>
+
+
+</ul>
+<div class="tab-content">
+    <div id="list" class="tab-pane fade show active">
+        <div ng-include="'/assert/admin/report/_form.html'"></div>
+    </div>
+    <div id="edit" class="tab-pane fade">
+        <div ng-include="'/assert/admin/report/_form2.html'"></div>
+    </div>
+    <div id="edit1" class="tab-pane fade">
+        <div ng-include="'/assert/admin/report/_form3.html'"></div>
+    </div>
+  
+</div>

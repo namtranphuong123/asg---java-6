@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+	<main>
+		<nav class="navbar navbar-expand-sm row mt-4"
+			style="background-color: beige; width: 1137px; height: 50px; border-radius: 15px;">
+			<a class="navbar-brand " th:href="@{/product/list}">Trang
+				Chủ</a>
+			<button class="navbar-toggler d-lg-none" type="button"
+				data-toggle="collapse" data-target="#collapsibleNavId"
+				aria-controls="collapsibleNavId" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse " id="collapsibleNavId">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+					<li class="nav-item "><a class="nav-link"
+						th:href="@{/order/list}"> Danh Sach Order</a></li>
+					<li class="nav-item "><a class="nav-link"
+						th:href="@{/all/index/lienhe}">Liên Hệ </a></li>
+						<th:block
+									th:unless="${#request.remoteUser}">
+					<li class="nav-item "><a class="nav-link"
+						th:href="@{/security/login/form}">Đăng Nhập</a></li>
+						<li class="nav-item "><a class="nav-link"
+						th:href="@{/home/index/dangky}">Đăng ky</a></li>
+						</th:block>
+					<th:block
+						th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+						<li class="nav-item "><a class="nav-link"
+							th:href="@{/admin/home/index}">For Admin</a></li>
+					</th:block>
+					<li class="dropdown m-menu-fw "
+						style="margin-top: 8px; margin-left: 30px">
+						
+						<th:block th:if="${#request.remoteUser}">
+						<a href=""	
+						data-toggle="dropdown" nclass="dropdown-toggle"> Tài khoản [[${#request.remoteUser}]]<span><i
+								class="fa fa-angle-down"></i></span></a> 
+								</th:block>
+								<!-- laays bai java5 suwa cc  copy cua ai -->
+						<ul class="dropdown-menu">
+							<li class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								
+							<th:block th:if="${#request.remoteUser}">
+								<li class="dropdown-item" ><a href="#"
+									th:href="@{/security/logoff}">Đăng Xuất</a></li>
+
+								<div class="dropdown-divider"></div>
+								<li ><a href="#!forgot">Quên Mật khẩu</a></li>
+								<li ><a href="#"
+									th:href="@{/aa}">Chinh sua thong tin</a></li></li>
+					</th:block>
+
+				</ul>
+
+
+
+				</ul>
+
+			</div>
+		</nav>
+		<div class="row mt-2">
+			<div class="col">
+				<form th:action="@{/product/list/search}">
+					<div class="form-inline float-left">
+						<input type="text" style="width: 1040px;"
+							class="form-control ml-2" name="name" id="name"
+							aria-describedby="helpId" placeholder="name">
+						<button class="btn btn-outline-primary ml-2">Search</button>
+					</div>
+				</form>
+			</div>
+			</div>
+	</main>
+</body>
+</html>

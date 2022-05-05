@@ -1,0 +1,25 @@
+
+
+<div class="panel panel-default">
+    
+    <table class="table table-condensed" >
+        <thead class="bg-success" style="font-variant: small-caps;">
+			<tr>
+				<th>Loại hàng</th>
+				<th>Tổng giá</th>
+				<th>Số sản phẩm</th>
+			</tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items">
+				<td scope="row">   {{item.group.name}}</td>
+				<td value=""
+						type="currency" >{{item.sum}} $</td>
+				<td> {{item.count}}</td>
+			</tr>
+        </tbody>
+    </table>
+    
+ 
+     
+</div>

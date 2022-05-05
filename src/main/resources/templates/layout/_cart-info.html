@@ -1,0 +1,13 @@
+
+
+<div class="card">
+  <div class="card-header">
+    <i class="fas fa-shopping-cart" > Gio hang</i>
+  </div>
+  <div class="card-body">
+    <a th:href="@{/cart/view}" style="font-size: 25px; color: red;">{{cart.count}} items x ${{cart.amount | number :2}}</a>
+  </div>
+ 
+</div>
+
+

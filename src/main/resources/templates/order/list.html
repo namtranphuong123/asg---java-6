@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<main >
+   <section class="mt-5" style="background-color: khaki;" th:fragment="shopping_cart">
+            <div class="panel-heading" style="text-align : center ;">	YOUR ORDER PURCHASED</div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>No. </td>
+                            <td>Order No.</td>
+                            <td>Order Date</td>
+                            <td>Shpiing Adress</td>
+                           
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                        <tr th:each="order, state:${order}">
+                            <td>[[${state.index}]]</td>
+                            <td>[[${order.id}]]</td>
+                            <td>[[${order.createDate}]]</td>
+                            <td>[[${order.address}]]</td>
+                            
+                            
+                            <td>
+                             <button th:href="@{|/order/detail/${order.id}|}" class="btn btn-success">Search</button>
+                            </td>  
+                      </tr>
+                      
+    
+    
+                    </tbody>
+                </table>
+                
+               
+    
+            </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <main class="row">
+
+
+
+
+
+
+    
+
+        <div th:each=" product : ${items1}" class=" col-sm-4 mt-4">
+
+            <div class="panel panel-primary poly-item text-center "
+                style=" border-radius: 15px;  background-color: antiquewhite ; height:350px">
+
+                <div class="panel-body">
+                    <a th:href="@{|/product/detail/${product.id}|}">
+                        <img th:src="@{|/images/${product.image}|}" width="230px"
+                            style="border-radius: 15px; margin-left: 7px; margin-top: 10px; height:200px ">
+                    </a>
+                </div>
+                <div class="panel-heading " style="height:40px">
+                    <h3 style="margin-left: 20px; " class="panel-title">[[${product.name}]]</h3>
+                </div>
+                <hr>
+                <div class="panel-footer text right mt-1">
+                    <b class="pull-left">Price : [[${product.price}]] $</b>
+                    <button th:attr="ng-click=@{|cart.add(${product.id})|}" class="btn btn-outline-warning"
+                        style="background-color: white; margin-bottom: 10px">
+                        <i class="fas fa-shopping-cart"></i>Order
+                    </button>
+
+
+                </div>
+            
+
+
+
+
+
+
+        </div>
+    </div>
+      <hr>
+      <div class="row mt-4 ml-1">
+        <img src="/images/a.jpg" alt="" width="800px">
+    </div>
+        <br>
+        <hr>
+        <br>
+        
+
+        <div th:each=" product : ${items2}" class=" col-sm-4 mt-4">
+
+            <div class="panel panel-primary poly-item text-center "
+                style=" border-radius: 15px;  background-color: antiquewhite ; height:350px">
+
+                <div class="panel-body">
+                    <a th:href="@{|/product/detail/${product.id}|}">
+                        <img th:src="@{|/images/${product.image}|}" width="230px"
+                            style="border-radius: 15px; margin-left: 7px; margin-top: 10px; height:200px ">
+                    </a>
+                </div>
+                <div class="panel-heading " style="height:40px">
+                    <h3 style="margin-left: 20px; " class="panel-title">[[${product.name}]]</h3>
+                </div>
+                <hr>
+                <div class="panel-footer text right mt-1">
+                    <b class="pull-left">Price : [[${product.Price}]] $</b>
+                    <button th:attr="ng-click=@{|cart.add(${product.id})|}" class="btn btn-outline-warning"
+                        style="background-color: white; margin-bottom: 10px">
+                        <i class="fas fa-shopping-cart"></i>Order
+                    </button>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+
+       
+        <div th:each=" product : ${items3}" class=" col-sm-4 mt-4">
+
+            <div class="panel panel-primary poly-item text-center "
+                style=" border-radius: 15px;  background-color: antiquewhite ; height:350px">
+
+                <div class="panel-body">
+                    <a th:href="@{|/product/detail/${product.id}|}">
+                        <img th:src="@{|/images/${product.image}|}" width="230px"
+                            style="border-radius: 15px; margin-left: 7px; margin-top: 10px; height:200px ">
+                    </a>
+                </div>
+                <div class="panel-heading " style="height:40px">
+                    <h3 style="margin-left: 20px; " class="panel-title">[[${product.name}]]</h3>
+                </div>
+                <hr>
+                <div class="panel-footer text right mt-1">
+                    <b class="pull-left">Price : [[${product.Price}]] $</b>
+                    <button th:attr="ng-click=@{|cart.add(${product.id})|}" class="btn btn-outline-warning"
+                        style="background-color: white; margin-bottom: 10px">
+                        <i class="fas fa-shopping-cart"></i>Order
+                    </button>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+
+
+    </main>
+</body>

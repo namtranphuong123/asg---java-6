@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+    <div class="panel-heading">AUTHORIZING</div>
+    <table class="table table-border">
+        <thead class="bg-success" style="font-variant: small-caps;">
+            <tr>
+                <th></th>
+                <th ng-repeat="role in roles" class="text-center">{{role.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="acc in pager.admins">
+                <td>{{acc.fullname}}</td>
+                <th class="text-center" ng-repeat="role in roles">
+                    <input ng-checked="authority_of(acc, role)" ng-click="authority_changed(acc, role)" type="checkbox" >
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <div class="panel-footer text-center">
+        <button ng-click="pager.first()" class="btn btn-danger">
+            <b class="fas fa-backward"></b>
+        </button>
+        <button ng-click="pager.prev()" class="btn btn-primary">
+            <b class="fas fa-arrow-left"></b>
+        </button>
+        <button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+        <button ng-click="pager.next()" class="btn btn-primary">
+            <b class="fas fa-arrow-right"></b>
+        </button>
+        <button ng-click="pager.last()" class="btn btn-danger">
+            <b class="fas fa-forward"></b>
+        </button>
+    </div>
+</div>

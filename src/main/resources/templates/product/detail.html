@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <main th:object="${item}" class="poly-item-detail">
+    <div class="row" style="background-color:antiquewhite ;">
+
+      <div class="col-6 mt-4">
+        <div class="panel panel-primary">
+          <div class="panel-body text-center">
+            <img th:src="@{'/images/'+*{image}}" width="230px"
+              style="border-radius: 15px; margin-left: 7px; margin-top: 10px; height:200px ">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="panel panel-primary col-6 mt-5"  >
+        <div class="panel-body">
+
+          <h2 style="color: black ;" th:text="*{name}"></h2>
+          <h3 style="color: red;" th:text="*{price}"> </h3>
+          <h3 th:text="*{createDate}"></h3>
+          <h3 style="color: salmon;" th:text="*{category.name}"></h3>
+          <br>
+          <br>
+          <div class="panel=footer">
+            <a  th:attr="ng-click=@{|cart.add(*{id})|}" class="btn btn-outline-warning"
+              style="background-color: white; margin-bottom: 10px">
+              <i class="fas fa-shopping-cart">Order</i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+    <br>
+<div class="row">
+
+  <div th:each=" product : *{category.products}" class=" col-sm-4 mt-4">
+    <div class="panel panel-primary poly-item text-center "
+      style=" border-radius: 15px;  background-color: antiquewhite ; height:350px">
+
+      <div class="panel-body">
+        <a th:href="@{|/product/detail/${product.id}|}">
+          <img th:src="@{|/images/${product.image}|}" width="230px"
+            style="border-radius: 15px; margin-left: 7px; margin-top: 10px; height:200px ">
+        </a>
+      </div>
+      <div class="panel-heading " style="height:40px">
+        <a style="margin-left: 20px; " class="panel-title" th:href="@{|/product/detail/${product.id}|}"
+          th:text="${product.name}"></a>
+      </div>
+      <hr>
+      <div class="panel-footer text right mt-1">
+        <b class="pull-left">Price : [[${product.Price}]] $</b>
+        <a th:attr="ng-click=@{|cart.add( ${product.id})|}" class="btn btn-outline-warning"
+          style="background-color: white; margin-bottom: 10px">
+          <i class="fas fa-shopping-cart"></i>Order
+        </a>
+
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>
+    
+
+
+
+  </main>
+</body>
+
+</html>

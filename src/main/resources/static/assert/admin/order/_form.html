@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+    <div class="card" style="height: 270px;background-color: rgb(192, 192, 192); width: 860px;">
+        <div class="card-header" style="color:red;">
+           SET STATUS
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="productId">Id:</label>
+                        <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                            placeholder="orderId" readonly ng-model="form.id">
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="name">status</label>
+                        <select ng-model="form.status.id" class="form-control">
+                            <option ng-repeat="c in status" ng-value="c.id">{{c.name}}</option>
+                        </select>
+    
+                    </div>
+                </div>
+               
+
+                
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="card-footer text-muted">
+            <div class="card-footer text-muted">
+                <button ng-click="update()" class="btn btn-warning"><i class="fas fa-update">Update</i> </button>
+                <button ng-click="delete(form)" class="btn btn-danger"><i class="fas fa-delete">Delete</i> </button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
